@@ -1,0 +1,15 @@
+Created by Eugene Zolotarev (eugzol@gmail.com)
+http://github.com/EugZol/use_helper_module
+
+MIT license
+
+Plugin created to make possible using view helpers in controllers.
+
+class MyController << ApplicationController
+  # all included methods are made protected to prevent running them as actions
+  use_helper_module ActionView::Helpers::DateHelper
+
+  def index
+    render :text => time_ago_in_words(3.minutes.from_now) # => 3 minutes
+  end
+end
